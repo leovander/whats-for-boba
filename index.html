@@ -123,9 +123,12 @@
           alt="What's for Boba? Logo"
           class="footer-logo"
         />
-        <p class="copyright">&copy; 2026, What's for Boba?</p>
+        <p class="copyright">&copy; <span id="year"></span>, What's for Boba?</p>
         <a href="#" class="footer-link">Privacy policy</a>
       </div>
     </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
