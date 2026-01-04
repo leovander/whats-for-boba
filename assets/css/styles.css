@@ -1,0 +1,284 @@
+/* ==========================================================================
+   What's for Boba? - Static Landing Page Styles
+   ========================================================================== */
+
+/* CSS Custom Properties */
+:root {
+  /* Colors */
+  --color-background: #ffffff;
+  --color-foreground: #121212;
+  --color-accent: #fce477;
+  --color-accent-secondary: #8b5a3c;
+  --color-text-muted: #666666;
+
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --line-height-base: 1.6;
+  --line-height-heading: 1.2;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  /* Layout */
+  --max-width: 800px;
+  --header-height: 60px;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: var(--line-height-heading);
+  margin: 0 0 var(--spacing-sm);
+}
+
+p {
+  margin: 0 0 var(--spacing-md);
+}
+
+a {
+  color: var(--color-foreground);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Skip Link (Accessibility)
+   ========================================================================== */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-foreground);
+  color: var(--color-background);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-background);
+  padding: var(--spacing-md) var(--spacing-lg);
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Main Content
+   ========================================================================== */
+
+.main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero {
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.hero-intro {
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   About Section
+   ========================================================================== */
+
+.about {
+  padding: var(--spacing-lg) 0 var(--spacing-2xl);
+}
+
+.content-block {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.content-block:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  text-transform: lowercase;
+}
+
+.content-block p {
+  font-size: var(--font-size-lg);
+}
+
+.content-block strong {
+  font-weight: 700;
+}
+
+.content-block em {
+  font-style: italic;
+}
+
+.tagline {
+  font-size: var(--font-size-xl);
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+  background-color: var(--color-background);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  border-top: 1px solid rgba(18, 18, 18, 0.1);
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 200px;
+  max-width: 100%;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-link {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.footer-link:hover {
+  color: var(--color-foreground);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+/* Tablet and up */
+@media (min-width: 750px) {
+  :root {
+    --font-size-base: 1.1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.75rem;
+    --font-size-2xl: 2.5rem;
+  }
+
+  .main {
+    padding: var(--spacing-xl);
+  }
+
+  .hero {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .hero-intro {
+    font-size: var(--font-size-xl);
+  }
+
+  .footer-logo {
+    width: 250px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 990px) {
+  .header {
+    padding: var(--spacing-lg) var(--spacing-xl);
+  }
+
+  .nav {
+    gap: var(--spacing-xl);
+  }
+
+  .main {
+    padding: var(--spacing-2xl);
+  }
+}
