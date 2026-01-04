@@ -7,19 +7,19 @@
   /* Colors */
   --color-background: #ffffff;
   --color-foreground: #121212;
-  --color-accent: #fce477;
-  --color-accent-secondary: #8b5a3c;
-  --color-text-muted: #666666;
+  --color-accent: #8b5a3c;
+  --color-text-muted: #555555;
 
   /* Typography */
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Source Sans 3', sans-serif;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --line-height-base: 1.6;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Source Sans 3", sans-serif;
+  --font-size-base: 0.9rem;
+  --font-size-lg: 0.95rem;
+  --font-size-xl: 1.1rem;
+  --font-size-2xl: 1.25rem;
+  --line-height-base: 1.8;
   --line-height-heading: 1.2;
+  --letter-spacing-body: 0.02rem;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -31,7 +31,7 @@
 
   /* Layout */
   --max-width: 800px;
-  --header-height: 60px;
+  --border-radius: 10px;
 }
 
 /* ==========================================================================
@@ -55,13 +55,19 @@ body {
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-body);
   color: var(--color-foreground);
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 400;
   line-height: var(--line-height-heading);
@@ -101,7 +107,7 @@ img {
   color: var(--color-background);
   padding: var(--spacing-xs) var(--spacing-sm);
   z-index: 1000;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 .skip-link:focus {
@@ -113,24 +119,20 @@ img {
    ========================================================================== */
 
 .header {
-  position: sticky;
-  top: 0;
-  background-color: var(--color-background);
-  padding: var(--spacing-md) var(--spacing-lg);
-  z-index: 100;
-}
-
-.nav {
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: center;
-  gap: var(--spacing-lg);
+  align-items: center;
+  background-color: #f5f1e8;
 }
 
-.nav-link {
-  font-family: var(--font-heading);
-  font-size: var(--font-size-base);
-  text-transform: lowercase;
-  letter-spacing: 0.05em;
+.header-logo-link {
+  display: block;
+}
+
+.header-logo {
+  width: 140px;
+  height: auto;
 }
 
 /* ==========================================================================
@@ -141,23 +143,24 @@ img {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--spacing-lg);
+  padding-bottom: 0;
 }
 
 /* ==========================================================================
-   Hero Section
+   Page Title & Intro
    ========================================================================== */
 
-.hero {
-  padding: var(--spacing-xl) 0;
-  text-align: center;
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin: 0 0 var(--spacing-lg);
+  text-transform: lowercase;
 }
 
-.hero-intro {
-  font-size: var(--font-size-lg);
-  font-style: italic;
-  color: var(--color-text-muted);
-  max-width: 600px;
-  margin: 0 auto;
+.intro-text {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-l);
 }
 
 /* ==========================================================================
@@ -165,11 +168,11 @@ img {
    ========================================================================== */
 
 .about {
-  padding: var(--spacing-lg) 0 var(--spacing-2xl);
+  padding: var(--spacing-sm) 0 0;
 }
 
 .content-block {
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .content-block:last-child {
@@ -178,9 +181,11 @@ img {
 
 .section-title {
   font-size: var(--font-size-2xl);
-  font-weight: 600;
-  margin-bottom: var(--spacing-md);
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: var(--spacing-sm);
   text-transform: lowercase;
+  color: var(--color-accent);
 }
 
 .content-block p {
@@ -189,6 +194,7 @@ img {
 
 .content-block strong {
   font-weight: 700;
+  color: var(--color-accent);
 }
 
 .content-block em {
@@ -197,8 +203,9 @@ img {
 
 .tagline {
   font-size: var(--font-size-xl);
-  text-align: center;
-  margin-top: var(--spacing-xl);
+  margin-top: var(--spacing-sm);
+  margin-bottom: 0;
+  color: var(--color-accent);
 }
 
 /* ==========================================================================
@@ -207,8 +214,8 @@ img {
 
 .footer {
   background-color: var(--color-background);
-  padding: var(--spacing-2xl) var(--spacing-lg);
-  border-top: 1px solid rgba(18, 18, 18, 0.1);
+  padding: 42px var(--spacing-lg) 39px;
+  padding-top: 0;
 }
 
 .footer-content {
@@ -218,7 +225,7 @@ img {
 }
 
 .footer-logo {
-  width: 200px;
+  width: 300px;
   max-width: 100%;
   margin: 0 auto var(--spacing-lg);
 }
@@ -245,37 +252,37 @@ img {
 /* Tablet and up */
 @media (min-width: 750px) {
   :root {
-    --font-size-base: 1.1rem;
-    --font-size-lg: 1.25rem;
-    --font-size-xl: 1.75rem;
-    --font-size-2xl: 2.5rem;
+    --font-size-base: 0.95rem;
+    --font-size-lg: 1rem;
+    --font-size-xl: 1.15rem;
+    --font-size-2xl: 1.35rem;
   }
 
   .main {
     padding: var(--spacing-xl);
   }
 
-  .hero {
-    padding: var(--spacing-2xl) 0;
+  .header-logo {
+    width: 160px;
   }
 
-  .hero-intro {
-    font-size: var(--font-size-xl);
+  .footer {
+    padding: 56px var(--spacing-lg) 52px;
   }
 
   .footer-logo {
-    width: 250px;
+    width: 400px;
   }
 }
 
 /* Desktop */
 @media (min-width: 990px) {
   .header {
-    padding: var(--spacing-lg) var(--spacing-xl);
+    padding: 1.5rem 3rem;
   }
 
-  .nav {
-    gap: var(--spacing-xl);
+  .header-logo {
+    width: 180px;
   }
 
   .main {
